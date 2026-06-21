@@ -1,0 +1,9 @@
+services:
+  pushbus-poc:
+    build: .
+    container_name: pushbus-poc-001a
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
