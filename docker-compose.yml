@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: pushbus-poc-001a:v7
+    image: pushbus-poc-001a:v8
     pull_policy: build
     restart: unless-stopped
 
@@ -32,11 +32,7 @@ services:
       DEFAULT_LINES: ${DEFAULT_LINES:-}
 
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "wget -qO- http://127.0.0.1:3000/api/health >/dev/null 2>&1 || exit 1",
-        ]
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/api/health >/dev/null 2>&1 || exit 1"]
       interval: 30s
       timeout: 5s
       retries: 5
@@ -56,5 +52,6 @@ services:
     networks:
       - web
 
+networks:
   web:
     external: true
