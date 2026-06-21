@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: pushbus-poc-001a:production
+    image: pushbus-poc-001a:v3
     pull_policy: build
     restart: unless-stopped
 

@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --omit=dev
+RUN npm install --omit=dev && npm ls dotenv express cors
 
 COPY . .
 
