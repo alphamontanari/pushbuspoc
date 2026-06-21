@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "description": "POC PushBus Linha 001A com endpoints API, Leaflet, histórico e timeline responsiva.",
   "main": "server.js",
+  "private": true,
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "check": "node -c server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
