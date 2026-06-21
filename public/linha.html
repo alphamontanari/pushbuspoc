@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PushBus POC 001A · Timeline</title>
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <header class="topbar"><div class="topbar-inner"><div class="brand"><strong>PushBus POC 001A</strong><span>Timeline do passageiro</span></div><nav class="nav"><a href="/mapa.html">Mapa</a><a href="/historico.html">Histórico</a><a class="active" href="/linha.html">Timeline</a></nav></div></header>
+  <main class="phone-wrap">
+    <div class="phone"><div class="screen">
+      <div class="island"></div>
+      <div class="statusbar"><span id="clock">--:--</span><span>▮▮▮ Wi‑Fi <span class="battery">100</span></span></div>
+      <div class="content">
+        <section class="route-card card"><h1 id="lineTitle">LINHA 001A</h1><p><b>Partida:</b> <span id="partida">-</span></p><p><b>Chegada:</b> <span id="chegada">-</span></p></section>
+        <section class="alert card"><div class="bus-bubble">🚌</div><div><div class="alert-small" id="eventSmall">Carregando posição do ônibus...</div><div class="alert-main">Tempo estimado até<strong id="etaText">-</strong></div></div></section>
+        <section class="meta"><div>Dia de semana · Saída: <b class="blue" id="saida">-</b></div><div>Serviço: <span class="blue" id="servico">-</span></div><div>Tipo de Itinerário: <span id="tripType">-</span></div><div class="muted" id="carro">Carro -</div></section>
+        <section class="timeline-card card"><h2>Trajeto (tempo estimado)</h2><div class="timeline" id="timeline"></div></section>
+        <section class="legend card"><strong>Legenda</strong><div class="legend-grid"><div class="legend-item"><span class="leg full"></span>Terminais</div><div class="legend-item"><span class="leg int"></span>Pontos de integração</div><div class="legend-item"><span class="leg"></span>Pontos de passagem</div></div></section>
+      </div>
+      <div class="homebar"></div>
+    </div></div>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/linha.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PushBus POC 001A · Mapa</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <header class="topbar"><div class="topbar-inner"><div class="brand"><strong>PushBus POC 001A</strong><span>Mapa, ônibus, pontos e geofence</span></div><nav class="nav"><a class="active" href="/mapa.html">Mapa</a><a href="/historico.html">Histórico</a><a href="/linha.html">Timeline</a></nav></div></header>
+  <main class="container layout-map">
+    <aside class="map-side">
+      <section class="card map-title"><h1>Linha 001A em campo</h1><p>POC para validar se a telemetria consegue alimentar a pessoa com previsibilidade mínima para se planejar e pegar o ônibus.</p></section>
+      <section class="card status-list">
+        <div id="warning" class="warn"></div>
+        <div class="metric"><div class="metric-icon">API</div><div><b>Fonte</b><span id="sourceText">Carregando...</span></div></div>
+        <div class="metric"><div class="metric-icon">BUS</div><div><b>Veículo</b><span id="vehicleText">-</span></div></div>
+        <div class="metric"><div class="metric-icon">GPS</div><div><b>Último GPS</b><span id="gpsText">-</span></div></div>
+        <div class="metric"><div class="metric-icon">⦿</div><div><b>Ponto mais próximo</b><span id="nearestText">-</span></div></div>
+        <div class="metric"><div class="metric-icon">ETA</div><div><b>Próximo ponto</b><span id="nextText">-</span></div></div>
+        <div class="metric"><div class="metric-icon">LOG</div><div><b>Evento</b><span id="eventText">-</span></div></div>
+      </section>
+    </aside>
+    <section class="card map-card">
+      <div id="map" class="leaflet-map"></div>
+      <div class="map-floating"><strong>Leaflet com pontos da planilha da Linha 001A</strong><span>O traçado é uma rota simplificada entre os pontos. Para produção, substitua por KML/KMZ homologado ou shape oficial.</span></div>
+      <div class="map-controls"><button id="refreshBtn" class="btn primary">Atualizar</button><button id="fitBtn" class="btn">Ver percurso</button></div>
+    </section>
+  </main>
+  <section class="container"><div class="card table-card"><table class="points-table"><thead><tr><th>#</th><th>Ponto</th><th>Horário</th><th>Tipo</th><th>Status</th></tr></thead><tbody id="pointsBody"></tbody></table></div></section>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/mapa.js"></script>
+</body>
+</html>

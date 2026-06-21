@@ -1,0 +1,19 @@
+{
+  "name": "pushbus-poc-001a",
+  "version": "0.1.0",
+  "description": "POC PushBus Linha 001A com endpoints API, Leaflet, histórico e timeline responsiva.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "ISC"
+}
