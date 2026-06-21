@@ -1,10 +1,9 @@
 services:
-  pushbus-poc:
+  api:
     build:
       context: .
       dockerfile: Dockerfile
     image: pushbus-poc-001a:production
-    container_name: pushbus-poc-001a
     restart: unless-stopped
 
     environment:
@@ -40,7 +39,6 @@ services:
 
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=web"
 
       - "traefik.http.routers.pushbus-poc.rule=Host(`poc.i9cidade.com.br`)"
       - "traefik.http.routers.pushbus-poc.entrypoints=websecure"
