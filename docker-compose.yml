@@ -39,6 +39,7 @@ services:
 
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=web"
 
       - "traefik.http.routers.pushbus-poc.rule=Host(`poc.i9cidade.com.br`)"
       - "traefik.http.routers.pushbus-poc.entrypoints=websecure"
@@ -48,8 +49,13 @@ services:
       - "traefik.http.services.pushbus-poc.loadbalancer.server.port=3000"
 
     networks:
+      - pushbus_internal
       - web
 
 networks:
+  pushbus_internal:
+    driver: bridge
+
   web:
     external: true
+    name: web
