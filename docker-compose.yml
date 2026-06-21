@@ -45,7 +45,7 @@ services:
       - "traefik.http.routers.pushbus-poc.rule=Host(`poc.i9cidade.com.br`)"
       - "traefik.http.routers.pushbus-poc.entrypoints=websecure"
       - "traefik.http.routers.pushbus-poc.tls=true"
-      - "traefik.http.routers.pushbus-poc.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.pushbus-poc.tls.certresolver=lets-encrypt"
 
       - "traefik.http.services.pushbus-poc.loadbalancer.server.port=3000"
 
