@@ -42,7 +42,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
 
-      - "traefik.http.routers.pushbus-poc.rule=Host(`poc.i9itape.com.br`)"
+      - "traefik.http.routers.pushbus-poc.rule=Host(`poc.i9cidade.com.br`)"
       - "traefik.http.routers.pushbus-poc.entrypoints=websecure"
       - "traefik.http.routers.pushbus-poc.tls=true"
       - "traefik.http.routers.pushbus-poc.tls.certresolver=letsencrypt"
