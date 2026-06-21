@@ -8,28 +8,28 @@ services:
     restart: unless-stopped
 
     environment:
-      PORT: "3000"
-      NODE_ENV: "production"
-      TZ: "America/Sao_Paulo"
+      PORT: ${PORT:-3000}
+      NODE_ENV: ${NODE_ENV:-production}
+      TZ: ${TZ:-America/Sao_Paulo}
 
-      ALLOW_MOCK: "false"
-      POLL_INTERVAL_SECONDS: "5"
-      STALE_AFTER_SECONDS: "90"
+      ALLOW_MOCK: ${ALLOW_MOCK:-false}
+      POLL_INTERVAL_SECONDS: ${POLL_INTERVAL_SECONDS:-5}
+      STALE_AFTER_SECONDS: ${STALE_AFTER_SECONDS:-90}
 
-      LINE_CODE: "01A"
-      LINE_CODE_ALT: "001A"
-      STRICT_LINE_FILTER: "true"
+      LINE_CODE: ${LINE_CODE:-01A}
+      LINE_CODE_ALT: ${LINE_CODE_ALT:-001A}
+      STRICT_LINE_FILTER: ${STRICT_LINE_FILTER:-true}
 
-      CITTATI_BASE_URL: "https://flits.cittati.com.br"
-      CITTATI_APP_CODE: "200"
-      CITTATI_CLIENT_ID: "1"
-      CITTATI_COMPANY_ID: "PREENCHER"
-      CITTATI_USERNAME: "PREENCHER"
-      CITTATI_PASSWORD: "PREENCHER"
-      CITTATI_TOKEN: ""
+      CITTATI_BASE_URL: ${CITTATI_BASE_URL:-https://flits.cittati.com.br}
+      CITTATI_APP_CODE: ${CITTATI_APP_CODE:-200}
+      CITTATI_CLIENT_ID: ${CITTATI_CLIENT_ID:-1}
+      CITTATI_COMPANY_ID: ${CITTATI_COMPANY_ID}
+      CITTATI_USERNAME: ${CITTATI_USERNAME}
+      CITTATI_PASSWORD: ${CITTATI_PASSWORD}
+      CITTATI_TOKEN: ${CITTATI_TOKEN:-}
 
-      DEFAULT_VEHICLES: "26002"
-      DEFAULT_LINES: ""
+      DEFAULT_VEHICLES: ${DEFAULT_VEHICLES:-26002}
+      DEFAULT_LINES: ${DEFAULT_LINES:-}
 
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/api/health >/dev/null 2>&1 || exit 1"]
@@ -41,7 +41,7 @@ services:
     labels:
       - "traefik.enable=true"
 
-      - "traefik.http.routers.pushbus-poc.rule=Host(`poc.i9itape.com.br`)"
+      - "traefik.http.routers.pushbus-poc.rule=Host(`${APP_HOST}`)"
       - "traefik.http.routers.pushbus-poc.entrypoints=websecure"
       - "traefik.http.routers.pushbus-poc.tls=true"
       - "traefik.http.routers.pushbus-poc.tls.certresolver=letsencrypt"
