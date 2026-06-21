@@ -1,4 +1,12 @@
-require('dotenv').config();
+function loadEnv() {
+  try {
+    require('dotenv').config();
+  } catch {
+    console.warn('dotenv não encontrado; seguindo com process.env.');
+  }
+}
+
+loadEnv();
 
 const express = require('express');
 const cors = require('cors');
